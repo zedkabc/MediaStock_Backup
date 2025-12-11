@@ -1,0 +1,12 @@
+
+.vscode/
+.env
+setup_db.php
+.idea
+.autoload.php
+public/index_duprof.php
+
+sql/init.sql
+
+env.php
+git-quick-stats
