@@ -7,12 +7,14 @@
 set -euo pipefail
 
 # ---- CONFIGURATION ----
-BACKUP_ROOT="/opt/mediastock_backups"
+BACKUP_ROOT="$(cd "$(dirname "$0")" && pwd)/backups"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 BACKUP_NAME="mediastock_backup_${TIMESTAMP}"
 BACKUP_PATH="${BACKUP_ROOT}/${BACKUP_NAME}"
-LOG_FILE="${BACKUP_ROOT}/backup_${TIMESTAMP}.log"
+LOG_FILE="$(cd "${BACKUP_ROOT}" && pwd)/backup_${TIMESTAMP}.log"
 RETENTION_DAYS=7
+
+PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 # Crée si nécessaire
 mkdir -p "${BACKUP_ROOT}"
@@ -47,16 +49,21 @@ backup_mysql() {
 
     mkdir -p "${BACKUP_PATH}/db"
 
-    DB_USER=$(docker exec mysql printenv MYSQL_USER || echo "")
-    DB_PASS=$(docker exec mysql printenv MYSQL_PASSWORD || echo "")
+    DB_CONTAINER="mediastock-db"
 
-    if docker exec mysql mysqldump -u"${DB_USER}" -p"${DB_PASS}" --all-databases \
-         | gzip > "${BACKUP_PATH}/db/mysql_all.sql.gz"
-    then
-        log "✔ Dump MySQL créé"
-    else
-        warn "⚠ Echec du dump MySQL"
-    fi
+    DB_USER=$(docker exec "${DB_CONTAINER}" printenv MYSQL_USER || echo "")
+    DB_PASS=$(docker exec "${DB_CONTAINER}" printenv MYSQL_PASSWORD || echo "")
+
+    if docker exec "${DB_CONTAINER}" mysqldump \
+    -u"${DB_USER}" -p"${DB_PASS}" \
+    --all-databases \
+    --no-tablespaces \
+  | gzip > "${BACKUP_PATH}/db/mysql_all.sql.gz"
+then
+    log "✔ Dump MySQL créé"
+else
+    warn "⚠ Echec du dump MySQL"
+fi
 }
 
 ################################################################################
@@ -73,8 +80,19 @@ backup_volumes() {
 ################################################################################
 backup_app_code() {
     log "🔹 Backup du code source"
-    cp -r . "${BACKUP_PATH}/app"
-    log "✔ Code source copié"
+
+    mkdir -p "${BACKUP_PATH}/app"
+
+    (
+      cd "${PROJECT_ROOT}" || exit 1
+      tar czf "${BACKUP_PATH}/app/source_code.tar.gz" \
+          --exclude=./backups \
+          --exclude=./.git \
+          --exclude=./node_modules \
+          .
+    )
+
+    log "✔ Code source archivé"
 }
 
 ################################################################################

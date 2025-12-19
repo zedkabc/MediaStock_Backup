@@ -1,0 +1,11 @@
+[0;32m[2025-12-19 14:30:06][0m ===== Début backup MediaStock =====
+[0;32m[2025-12-19 14:30:06][0m Vérification de Docker...
+[0;32m[2025-12-19 14:30:07][0m Prérequis OK
+[0;32m[2025-12-19 14:30:07][0m 🔹 Backup de MySQL
+[0;32m[2025-12-19 14:30:07][0m ✔ Dump MySQL créé
+[0;32m[2025-12-19 14:30:07][0m 🔹 Backup des volumes MySQL
+[0;32m[2025-12-19 14:30:08][0m ✔ Volume MySQL sauvegardé
+[0;32m[2025-12-19 14:30:08][0m 🔹 Backup du code source
+[0;32m[2025-12-19 14:30:08][0m ✔ Code source archivé
+[0;32m[2025-12-19 14:30:08][0m 🔹 Backup des fichiers de configuration
+[0;32m[2025-12-19 14:30:09][0m 📦 Création de l'archive finale

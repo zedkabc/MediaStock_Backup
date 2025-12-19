@@ -1,0 +1,558 @@
+/* style de frontend/index.php*/
+
+:root {
+  --coral: #ff9994;
+  --success: #28a745;
+  --warning: #fd7e14;
+  --danger: #ff7f50;
+  --black: #000;
+  --white: white;
+}
+
+header {
+  background: var(--coral);
+  height: 60px;
+}
+
+.logo-app {
+  z-index: 2;
+}
+
+.img-logo{
+  max-height: 60px;
+}
+
+/* #qr-reader{
+    width: 300px; 
+    height: 300px;
+} */
+
+#hr {
+  background-color: var(--coral);
+  height: 4px;
+  opacity: 1;
+}
+
+#deleteIcon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border: 4px solid var(--coral);
+  border-radius: 8px;
+}
+
+#confirmDeleteBtn {
+  background: var(--coral);
+  color: var(--white);
+}
+
+/* Action buttons */
+.action-btn {
+  background: var(--white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+}
+
+/* acceuil.php */
+.action-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Status indicators */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* pour afficher les dot en couleur selon leur disponibilité */
+/* pour afficher les états en couleur */
+.status-disponible,
+.etat-bon {
+  background-color: var(--success);
+}
+
+.status-indisponible,
+.etat-moyen {
+  background-color: var(--danger);
+}
+
+.status-retard,
+.etat-mauvais {
+  background-color: #dc3545;
+}
+
+.etat-button {
+  margin-left: 15px;
+  margin-top: 2px;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 2px 10px;
+  color: var(--white);
+}
+
+/* ____________________________________________ */
+/* dans script.js */
+/* List items */
+.item-icon {
+  font-size: 1.25rem;
+  margin-right: 10px;
+  color: var(--bs-gray-600);
+}
+
+/* dans script.js */
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+}
+
+/* Historique dans script.js */
+.list-group-item-historique {
+  display: block;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+
+.list-group-item:hover {
+  background: #fafafa;
+}
+
+.list-group-item .header {
+  margin-bottom: 10px;
+}
+
+.list-group-item .status {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.list-group-item .notes {
+  margin-bottom: 8px;
+}
+
+.list-group-item .notes div {
+  margin-bottom: 4px;
+}
+
+/* Mobile-optimized list items */
+.list-group-item:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.list-group-item .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.item-meta {
+  color: #333;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6c757d;
+}
+
+.trash-btn,
+.change-btn {
+  color: #6c757d;
+  background: transparent;
+  border: none;
+}
+
+.fa-lg {
+  font-size: 1.5em !important;
+}
+
+.badge-etat {
+  display: inline-block;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 100px;
+}
+
+/* je ne sais pas s'il faut cette partie???? */
+.badge-etat.bon {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.badge-etat.moyen {
+  background-color: var(--warning);
+  color: var(--white);
+}
+
+.badge-etat.mauvais {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+/* ____________________________________________ */
+
+.section-title {
+  font-size: 1rem;
+  color: var(--bs-gray-700);
+  margin-bottom: 1rem;
+}
+
+/* Mobile-first toolbar */
+.toolbar .form-select {
+  min-width: auto;
+  font-size: 0.875rem;
+}
+
+/* Style du bouton Ajouter  => je ne sais pas s'il faut içi?????*/
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: var(--coral) !important;
+  border-color: var(--coral) !important;
+  box-shadow: none !important;
+}
+
+/* ************************   Offcanvas Fiche Produit - Design Moderne ************************* */
+.offcanvas-fiche {
+  width: 520px !important;
+}
+
+/* Boutons QR Code dans la fiche produit */
+.btn-qr {
+  background: linear-gradient(135deg, #ff9994, #ffb3b0);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 153, 148, 0.3);
+}
+
+.btn-qr:hover {
+  background: linear-gradient(135deg, #ff8580, #ff9994);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 153, 148, 0.5);
+}
+
+.btn-qr:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 153, 148, 0.4);
+}
+
+.btn-qr i {
+  font-size: 1rem;
+}
+
+#qrcodeActionsIndex {
+  margin-top: 1rem;
+}
+
+.offcanvas-header-custom {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.btn-close-custom {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-close-custom:hover {
+  background: var(--white);
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-close-custom i {
+  color: #333;
+  font-size: 18px;
+}
+
+/* En-tête de la fiche */
+.fiche-header {
+  background: linear-gradient(135deg, #ff9994 0%, #ffb3af 100%);
+  padding: 60px 30px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(255, 153, 148, 0.2);
+}
+
+.fiche-icon-wrapper {
+  margin-bottom: 20px;
+}
+
+.fiche-icon-circle {
+  width: 100px;
+  height: 100px;
+  background: var(--white);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.fiche-icon-circle:hover {
+  transform: scale(1.05);
+}
+
+.fiche-icon-circle i {
+  color: var(--coral);
+}
+
+.fiche-title {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fiche-badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fiche-badges .badge {
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Corps de la fiche */
+.fiche-content {
+  padding: 25px 20px;
+  background: #f8f9fa;
+  min-height: calc(100vh - 280px);
+}
+
+.fiche-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.fiche-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.fiche-card-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 15px 20px;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid var(--coral);
+  display: flex;
+  align-items: center;
+}
+
+.fiche-card-header i {
+  color: var(--coral);
+  font-size: 1.1rem;
+}
+
+.fiche-card-body {
+  padding: 25px 20px;
+}
+
+/* QR Code */
+.qr-container {
+  display: inline-block;
+  padding: 15px;
+  background: var(--white);
+  border: 3px dashed #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.qr-container:hover {
+  border-color: var(--coral);
+  box-shadow: 0 4px 15px rgba(255, 153, 148, 0.2);
+}
+
+/* Historique moderne */
+#ficheHistorique .list-group {
+  border: none;
+}
+
+#ficheHistorique .list-group-item {
+  border: none;
+  border-left: 4px solid var(--coral);
+  margin-bottom: 15px;
+  border-radius: 8px !important;
+  background: #f8f9fa;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+#ficheHistorique .list-group-item:hover {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
+}
+
+#ficheHistorique .badge {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+#ficheHistorique .text-muted {
+  font-size: 0.85rem;
+}
+
+/* Message vide historique */
+#ficheHistorique .text-center.text-muted {
+  padding: 40px 20px;
+}
+
+#ficheHistorique .text-center.text-muted i {
+  color: #dee2e6;
+}
+
+/* ************************   Fin Offcanvas Fiche Produit ************************* */
+
+footer {
+  background: var(--coral);
+  /* background-color: var(--coral);???????????????? */
+  padding: 14px 0;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+  opacity: 0.69;
+}
+
+/* pastille disponibilité */
+.status-disponible {
+  background-color: var(--success);
+}
+
+.status-indisponible {
+  background-color: var(--danger);
+}
+
+.status-retard {
+  background-color: #dc3545;
+}
+
+/* Conteneur général du scanner */
+#qr-reader-container {
+  display: none;
+  width: 90vw;
+  max-width: 400px;
+  margin: 30px auto; /* espace au-dessus et en dessous */
+  padding: 20px; /* espace autour du scanner */
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Zone du lecteur QR réelle */
+#qr-reader {
+  width: 100%;
+  overflow: hidden; /* empêche la vidéo de dépasser */
+  border-radius: 10px;
+}
+
+/* Si tu veux que ça reste centré dans la page */
+#qr-reader-container {
+  display: none; /* masqué par défaut */
+  text-align: center;
+}
+
+/* pour la page modification-item.php =>icon de retour */
+.change.fas {
+  font-size: 2rem;
+  opacity: 0.69;
+}
+
+/* Responsive */
+@media (min-width: 576px) {
+  .offcanvas-fiche {
+    width: 100% !important;
+  }
+
+  .fiche-header {
+    padding: 50px 20px 30px;
+  }
+
+  .fiche-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Mobile-optimized list items */
+  .list-group-item .left {
+    gap: 12px;
+  }
+
+  .item-icon i {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* toolbar */
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .toolbar .form-select {
+    min-width: 140px;
+  }
+}
